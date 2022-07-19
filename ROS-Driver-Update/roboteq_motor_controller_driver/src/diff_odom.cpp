@@ -118,10 +118,7 @@ void Odometry_calc::init_variables()
 
 	ticks_meter = 50;
 
-	base_width = 0.3;
-
-	
-	
+	base_width = 0.88;
 
 	encoder_low_wrap = ((encoder_max - encoder_min) * 0.3) + encoder_min ;
 	encoder_high_wrap = ((encoder_max - encoder_min) * 0.7) + encoder_min ;
@@ -138,7 +135,9 @@ void Odometry_calc::init_variables()
 	dx = 0;
 	dr = 0;
  
-	x_final = 0;y_final=0;theta_final=0;
+	x_final = 0;
+	y_final=0;
+	theta_final=0;
 	
 	current_time = ros::Time::now();
   	last_time = ros::Time::now();
