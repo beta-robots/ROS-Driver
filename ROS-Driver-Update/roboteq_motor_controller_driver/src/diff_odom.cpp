@@ -180,18 +180,13 @@ void Odometry_calc::update(){
 		}
 		
 		enc_left = left;
-		//ROS_INFO_STREAM(left);
 		enc_right = right;
 
 		d = (d_left + d_right ) / 2.0;
-
-		// ROS_INFO_STREAM(d_left << " : " << d_right);
-
-
 		th = ( d_right - d_left ) / base_width;
-		
-		dx = d /elapsed;
 
+		// twist computed
+		dx = d /elapsed;
 		dr = th / elapsed;
 
 	
@@ -266,7 +261,7 @@ void Odometry_calc::update(){
 void Odometry_calc::leftencoderCb(const roboteq_motor_controller_driver::channel_values& left_ticks)
 {
 //	ROS_INFO_STREAM("Left tick" << left_ticks->data);
-	double enc = left_ticks.value[0];
+	double enc = left_ticks.value[1];
 	
 	if( (enc < encoder_low_wrap) && (prev_lencoder > encoder_high_wrap) )
 	{
@@ -295,7 +290,7 @@ void Odometry_calc::rightencoderCb(const roboteq_motor_controller_driver::channe
 //	ROS_INFO_STREAM("Right tick" << right_ticks->data);
 
 
-	double enc = right_ticks.value[1];
+	double enc = right_ticks.value[0];
 	
 	if( (enc < encoder_low_wrap) && (prev_lencoder > encoder_high_wrap) )
 	{
