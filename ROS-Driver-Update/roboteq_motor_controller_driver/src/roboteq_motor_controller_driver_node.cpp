@@ -102,7 +102,7 @@ private:
 
 		ser.write(cmd_sub.str());
 		ser.flush();
-		ROS_INFO_STREAM(cmd_sub.str());
+		// ROS_INFO_STREAM(cmd_sub.str());
 	}
 
 	ros::NodeHandle n;
