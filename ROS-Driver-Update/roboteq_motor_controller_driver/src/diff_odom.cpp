@@ -106,7 +106,7 @@ void Odometry_calc::init_variables()
 	rate = 10;
 
 	// KINEMATIC PARAMETERS
-	ticks_meter = 50;
+	ticks_meter = 50*7.24;
 	base_width = 0.88;
 
 	encoder_low_wrap = ((encoder_max - encoder_min) * 0.3) + encoder_min ;
@@ -118,7 +118,7 @@ void Odometry_calc::init_variables()
 	then = ros::Time::now();
 
 
-	enc_left = 10;
+	enc_left = 0;
 	enc_right = 0;
 
 	dx = 0;
